@@ -1,0 +1,22 @@
+package Cozy.HiddenSyntax.org;
+
+import Cozy.HiddenSyntax.org.listener.HiddenBukkitSyntax;
+import org.bukkit.plugin.java.JavaPlugin;
+
+public class main extends JavaPlugin {
+    @Override
+    public void onEnable() {
+        super.onEnable();
+        getLogger().info("BukkitSyntax by CozyLeprechaun94 has been enabled!");
+        new HiddenBukkitSyntax(this);
+        saveDefaultConfig();
+
+    }
+
+    @Override
+    public void onDisable() {
+        super.onDisable();
+        getLogger().info("BukkitSyntax by CozyLeprechaun94 has been enabled!");
+        saveDefaultConfig();
+    }
+}
