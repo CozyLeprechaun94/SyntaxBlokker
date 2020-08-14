@@ -1,0 +1,28 @@
+package Cozy.HiddenSyntax.org.listener;
+
+import Cozy.HiddenSyntax.org.main;
+import Cozy.HiddenSyntax.org.utils.utils;
+import org.bukkit.Bukkit;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerCommandPreprocessEvent;
+
+public class HiddenBukkitSyntax implements Listener {
+
+    private main plugin;
+
+    public HiddenBukkitSyntax(main plugin) {
+        this.plugin = plugin;
+
+        Bukkit.getPluginManager().registerEvents(this, plugin);
+    }
+
+    @EventHandler
+    public void onCommand(PlayerCommandPreprocessEvent e) {
+        if (e.getMessage().split(" ")[0].contains(":")) {
+            e.setCancelled(true);
+            e.getPlayer().sendMessage((utils.chat(plugin.getConfig().getString("Syntax_message"))));
+
+        }
+    }
+}
